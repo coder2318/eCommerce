@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Laravel 8 eCommerce project example
 
 ## Installation
