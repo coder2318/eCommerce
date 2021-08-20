@@ -13,11 +13,13 @@ class ShopComponent extends Component
     public $sort;
     public $paginate;
     public $category_slug;
+    public $search;
     public function  mount($category_slug = null)
     {
         $this->sort = 'default';
         $this->paginate = 12;
         $this->category_slug = $category_slug;
+        $this->search = request()->get('search', null);
     }
     public function render()
     {
@@ -35,6 +37,10 @@ class ShopComponent extends Component
         if($this->category_slug){
             $category = Category::where('slug', $this->category_slug)->first();
             $product = $product->where('category_id', $category->id);
+        }
+        if($this->search){
+            // dd($this->search);
+            $product = $product->where('name', 'like', '%'.$this->search.'%');
         }
         $product = $product->paginate($this->paginate);
         $categories = Category::get();

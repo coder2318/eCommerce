@@ -13,7 +13,7 @@
             <div class="wrap-iten-in-cart">
                 <h3 class="box-title">Products Name</h3>
                 <ul class="products-cart">
-                    @if (isset($cart[0]))
+                    @if (sizeof($cart))
                         @foreach ($cart as $item)
                             <li class="pr-cart-item">
                                 <div class="product-image">

@@ -22,6 +22,7 @@ class CartComponent extends Component
             'quantity' => $cart->quantity+1,
             'price' => ($cart->quantity+1)*$cart->price_each
         ]);
+        $this->emitTo('cart-count-component', 'count');
     }
     public function decrease($id)
     {
@@ -35,7 +36,9 @@ class CartComponent extends Component
                     'price' => ($cart->quantity-1)*$cart->price_each
                 ]);
             }
+            $this->emitTo('cart-count-component', 'count');
         }
+
     }
     public function render()
     {

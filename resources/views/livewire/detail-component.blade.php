@@ -48,15 +48,15 @@
                         <div class="quantity">
                             <span>Quantity:</span>
                             <div class="quantity-input">
-                                <input type="text" name="product-quatity" value="1" data-max="120" pattern="[0-9]*" >
+                                <input type="text" name="inu_quantity" wire:model="quantity" value="1" data-max="120" pattern="[0-9]*" >
 
-                                <a class="btn btn-reduce" href="#"></a>
-                                <a class="btn btn-increase" href="#"></a>
+                                <a class="btn btn-reduce" href="" ></a>
+                                <a class="btn btn-increase" href="#" wire:click="increase()"></a>
                             </div>
                         </div>
                         <div class="wrap-butons">
-                            {{-- <a href="{{route('cart', ['product_id' => $product->id, 'quantity' => 1])}}" class="btn add-to-cart">Add to Cart</a> --}}
                             <form action="{{route('cart.store')}}" method="POST">
+                                @method('post')
                                 @csrf
                                 <input type="text" name="product_id" hidden value="{{$product->id}}">
                                 <input type="text" name="quantity" hidden value="1">
@@ -64,7 +64,13 @@
                             </form>
                             <div class="wrap-btn">
                                 <a href="#" class="btn btn-compare">Add Compare</a>
-                                <a href="#" class="btn btn-wishlist">Add Wishlist</a>
+                                @if (auth()->check())
+                                    @if ($wishlist)
+                                        <a href="#" style="color: red" class="btn btn-wishlist" wire:click="addWishlist({{$product->id}})">Add Wishlist</a>
+                                    @else
+                                        <a href="#" class="btn btn-wishlist" wire:click="addWishlist({{$product->id}})">Add Wishlist</a>
+                                    @endif
+                                @endif
                             </div>
                         </div>
                     </div>
