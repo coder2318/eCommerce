@@ -143,7 +143,7 @@
                                 <a href="{{route('cart')}}" class="link-term mercado-item-title">{{  __('main.cart') }}</a>
                             </li>
                             <li class="menu-item">
-                                <a href="checkout.html" class="link-term mercado-item-title">{{  __('main.checkout') }}</a>
+                                <a href="{{route('checkout')}}" class="link-term mercado-item-title">{{  __('main.checkout') }}</a>
                             </li>
                             <li class="menu-item">
                                 <a href="contact-us.html" class="link-term mercado-item-title">Contact Us</a>

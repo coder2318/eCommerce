@@ -20,6 +20,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => ['get
         Route::get('/cart', \App\Http\Livewire\CartComponent::class)->name('cart')->middleware('auth');
         Route::post('/cart/store', [\App\Http\Livewire\CartComponent::class, 'store'])->name('cart.store')->middleware('auth');
         Route::get('/product/detail/{slug?}', \App\Http\Livewire\DetailComponent::class)->name('product.detail');
+        Route::get('/checkout/{order_id?}', \App\Http\Livewire\CheckoutComponent::class)->name('checkout');
+        Route::get('/thank-you/{order_id}', \App\Http\Livewire\ThankyouComponent::class)->name('thankyou');
     Route::group(['middleware' => ['role:user']], function () {
         Route::get('/colors', function () {     return view('dashboard.colors'); });
         Route::get('/typography', function () { return view('dashboard.typography'); });

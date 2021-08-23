@@ -9,14 +9,10 @@ class SearchHeaderComponent extends Component
 {
     public $cat_name;
     public $search;
-    public function mount()
-    {
-
-    }
-
+    
     public function search()
     {
-        // dd($this->cat_name);
+        dd($this->cat_name);
         return redirect()->route('shop', ['category_slug' => $this->cat_name, 'search' => $this->search]);
     }
     public function render()

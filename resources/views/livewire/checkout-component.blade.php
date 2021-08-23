@@ -9,63 +9,82 @@
             </ul>
         </div>
         <div class=" main-content-area">
-            @if (session()->has('checkout'))
-                <div class="alert alert-warning">Warning! <span>{{session('checkout')}}</span></div>
-            @endif
-            <div class="wrap-iten-in-cart">
-                <h3 class="box-title">Products Name</h3>
-                <ul class="products-cart">
-                    @if (sizeof($cart))
-                        @foreach ($cart as $item)
-                            <li class="pr-cart-item">
-                                <div class="product-image">
-                                    <figure><img src="{{asset('assets/images/products/'.$item->product->image)}}" alt="{{$item->product->name}}"></figure>
-                                </div>
-                                <div class="product-name">
-                                    <a class="link-to-product" href="{{route('product.detail', ['slug'=>$item->product->slug])}}">{{$item->product->name}}</a>
-                                </div>
-                                <div class="price-field produtc-price"><p class="price">${{$item->price_each}}</p></div>
-                                <div class="quantity">
-                                    <div class="quantity-input">
-                                        <input type="text" name="product-quatity" value="{{$item->quantity}}" data-max="120" pattern="[0-9]*" >
-                                        <a class="btn btn-increase" href="#" wire:click="increase({{$item->id}})"></a>
-                                        <a class="btn btn-reduce" href="#" wire:click="decrease({{$item->id}})"></a>
-                                    </div>
-                                </div>
-                                <div class="price-field sub-total"><p class="price">${{$item->quantity*$item->price_each}}</p></div>
-                                <div class="delete">
-                                    <a href="#" class="btn btn-delete" title="">
-                                        <span>Delete from your cart</span>
-                                        <i class="fa fa-times-circle" aria-hidden="true"></i>
-                                    </a>
-                                </div>
-                            </li>
-                        @endforeach
-                    @else
-                        <div class="alert alert-warning">
-                            No products
-                        </div>
-                    @endif
-                </ul>
-            </div>
+            <div class="wrap-address-billing">
+                <h3 class="box-title">Billing Address</h3>
+                {{$order}}
+                <form action="#" method="get" name="frm-billing">
+                    <p class="row-in-form">
+                        <label for="fname">first name<span>*</span></label>
+                        <input id="fname" type="text" name="fname" wire:model="first_name" value="" placeholder="Your name">
+                    </p>
+                    <p class="row-in-form">
+                        <label for="lname">last name<span>*</span></label>
+                        <input id="lname" type="text" name="lname" value="" wire:model="last_name" placeholder="Your last name">
+                    </p>
+                    <p class="row-in-form">
+                        <label for="email">Email Addreess:</label>
+                        <input id="email" type="email" name="email" value="" wire:model="email" placeholder="Type your email">
+                    </p>
+                    <p class="row-in-form">
+                        <label for="phone">Phone number<span>*</span></label>
+                        <input id="phone" type="number" name="phone" value="" wire:model="phone" placeholder="10 digits format">
+                    </p>
+                    <p class="row-in-form">
+                        <label for="add">Address:</label>
+                        <input id="add" type="text" name="add" value="" wire:model="address" placeholder="Street at apartment number">
+                    </p>
+                    <p class="row-in-form">
+                        <label for="country">Country<span>*</span></label>
+                        <input id="country" type="text" name="country" value="" wire:model="country" placeholder="United States">
+                    </p>
 
-            <div class="summary">
-                <div class="order-summary">
-                    <h4 class="title-box">Order Summary</h4>
-                    <p class="summary-info"><span class="title">Subtotal</span><b class="index">${{$cart->sum('price')}}</b></p>
-                    <p class="summary-info"><span class="title">Shipping</span><b class="index">${{$cart->sum('price')*0.01}}</b></p>
-                    <p class="summary-info total-info "><span class="title">Total</span><b class="index">${{$cart->sum('price')*1.01}}</b></p>
+                    <p class="row-in-form">
+                        <label for="city">Town / City<span>*</span></label>
+                        <input id="city" type="text" name="city" value="" wire:model="city" placeholder="City name">
+                    </p>
+                    <p class="row-in-form fill-wife">
+                        <label class="checkbox-field">
+                            <input name="create-account" id="create-account" value="forever" type="checkbox">
+                            <span>Create an account?</span>
+                        </label>
+                        <label class="checkbox-field">
+                            <input name="different-add" id="different-add" value="forever" type="checkbox">
+                            <span>Ship to a different address?</span>
+                        </label>
+                    </p>
+                </form>
+            </div>
+            <div class="summary summary-checkout">
+                <div class="summary-item payment-method">
+                    <h4 class="title-box">Payment Method</h4>
+                    <p class="summary-info"><span class="title">Check / Money order</span></p>
+                    <p class="summary-info"><span class="title">Credit Cart (saved)</span></p>
+                    <div class="choose-payment-methods">
+                        <label class="payment-method">
+                            <input name="payment-method" id="payment-method-bank" value="cash" wire:model="payment_type" type="radio">
+                            <span>Naqd pulda</span>
+                            <span class="payment-desc">Bunda siz pulni mahsulotni olganingizdan so'ng to'laysiz</span>
+                        </label>
+                        <label class="payment-method">
+                            <input name="payment-method" id="payment-method-visa" value="visa" wire:model="payment_type" type="radio">
+                            <span>visa</span>
+                            <span class="payment-desc">There are many variations of passages of Lorem Ipsum available</span>
+                        </label>
+                        <label class="payment-method">
+                            <input name="payment-method" id="payment-method-paypal" value="payme" wire:model="payment_type" type="radio">
+                            <span>Payme</span>
+                            <span class="payment-desc">You can pay with your credit</span>
+                            <span class="payment-desc">card if you don't have a paypal account</span>
+                        </label>
+                    </div>
+                    <p class="summary-info grand-total"><span>Grand Total</span> <span class="grand-total-price">${{$order->all_price}}</span></p>
+                    <a href="" class="btn btn-medium" wire:click.prevent="update({{$order}})">Place order now</a>
                 </div>
-                <div class="checkout-info">
-                    <label class="checkbox-field">
-                        <input class="frm-input " name="have-code" id="have-code" value="" type="checkbox"><span>I have promo code</span>
-                    </label>
-                    <a class="btn btn-checkout" href="" wire:click.prevent="storeCheckout({{$cart}})">Check out</a>
-                    <a class="link-to-shop" href="shop.html">Continue Shopping<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
-                </div>
-                <div class="update-clear">
-                    <a class="btn btn-clear" href="#">Clear Shopping Cart</a>
-                    <a class="btn btn-update" href="#">Update Shopping Cart</a>
+                <div class="summary-item shipping-method">
+                    <h4 class="title-box f-title">Shipping method</h4>
+                    <p class="summary-info"><span class="title">Flat Rate</span></p>
+                    <p class="summary-info"><span class="title">Shipping ${{$order->shipping}}</span></p>
+
                 </div>
             </div>
 
