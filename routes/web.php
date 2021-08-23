@@ -81,6 +81,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => ['get
     ]);
 
     Route::group(['middleware' => ['role:admin']], function () {
+        Route::resource('product', 'App\Http\Controllers\ProductController');
         Route::resource('bread',  'App\Http\Controllers\BreadController');   //create BREAD (resource)
         Route::resource('users',        'App\Http\Controllers\UsersController')->except( ['create', 'store'] );
         Route::resource('roles',        'App\Http\Controllers\RolesController');
