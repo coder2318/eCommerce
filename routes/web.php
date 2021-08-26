@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => ['get.menu', 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath']], function () {
 //    Route::get('/', function () {           return view('dashboard.homepage'); });
         Route::get('/', \App\Http\Livewire\HomeComponent::class)->name('home');
+        Route::get('/about-us', \App\Http\Livewire\AboutUsComponent::class)->name('aboutus');
+        Route::get('/contact-us', \App\Http\Livewire\ContactUsComponent::class)->name('contactus');
         Route::get('/shop/{category_slug?}', \App\Http\Livewire\ShopComponent::class)->name('shop');
         Route::get('/cart', \App\Http\Livewire\CartComponent::class)->name('cart')->middleware('auth');
         Route::get('/product/detail/{slug?}', \App\Http\Livewire\DetailComponent::class)->name('product.detail');

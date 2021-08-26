@@ -44,41 +44,41 @@
 
                 </form>
             </div>
-            @if ($order)
-                <div class="summary summary-checkout">
-                    <div class="summary-item payment-method">
-                        <h4 class="title-box">Payment Method</h4>
-                        <p class="summary-info"><span class="title">Check / Money order</span></p>
-                        <p class="summary-info"><span class="title">Credit Cart (saved)</span></p>
-                        <div class="choose-payment-methods">
-                            <label class="payment-method">
-                                <input name="payment-method" id="payment-method-bank" value="cash" wire:model="payment_type" type="radio">
-                                <span>Naqd pulda</span>
-                                <span class="payment-desc">Bunda siz pulni mahsulotni olganingizdan so'ng to'laysiz</span>
-                            </label>
-                            <label class="payment-method">
-                                <input name="payment-method" id="payment-method-visa" value="visa" wire:model="payment_type" type="radio">
-                                <span>visa</span>
-                                <span class="payment-desc">There are many variations of passages of Lorem Ipsum available</span>
-                            </label>
-                            <label class="payment-method">
-                                <input name="payment-method" id="payment-method-paypal" value="payme" wire:model="payment_type" type="radio">
-                                <span>Payme</span>
-                                <span class="payment-desc">You can pay with your credit</span>
-                                <span class="payment-desc">card if you don't have a paypal account</span>
-                            </label>
+                @if($order)
+                    <div class="summary summary-checkout">
+                        <div class="summary-item payment-method">
+                            <h4 class="title-box">Payment Method</h4>
+                            <p class="summary-info"><span class="title">Check / Money order</span></p>
+                            <p class="summary-info"><span class="title">Credit Cart (saved)</span></p>
+                            <div class="choose-payment-methods">
+                                <label class="payment-method">
+                                    <input name="payment-method" id="payment-method-bank" value="cash" wire:model="payment_type" type="radio">
+                                    <span>Naqd pulda</span>
+                                    <span class="payment-desc">Bunda siz pulni mahsulotni olganingizdan so'ng to'laysiz</span>
+                                </label>
+                                <label class="payment-method">
+                                    <input name="payment-method" id="payment-method-visa" value="visa" wire:model="payment_type" type="radio">
+                                    <span>visa</span>
+                                    <span class="payment-desc">There are many variations of passages of Lorem Ipsum available</span>
+                                </label>
+                                <label class="payment-method">
+                                    <input name="payment-method" id="payment-method-paypal" value="payme" wire:model="payment_type" type="radio">
+                                    <span>Payme</span>
+                                    <span class="payment-desc">You can pay with your credit</span>
+                                    <span class="payment-desc">card if you don't have a paypal account</span>
+                                </label>
+                            </div>
+                            <p class="summary-info grand-total"><span>Grand Total</span> <span class="grand-total-price">${{$order->all_price}}</span></p>
+                            <a href="" class="btn btn-medium" wire:click.prevent="update({{$order}})">Place order now</a>
                         </div>
-                        <p class="summary-info grand-total"><span>Grand Total</span> <span class="grand-total-price">${{$order->all_price}}</span></p>
-                        <a href="" class="btn btn-medium" wire:click.prevent="update({{$order}})">Place order now</a>
-                    </div>
-                    <div class="summary-item shipping-method">
-                        <h4 class="title-box f-title">Shipping method</h4>
-                        <p class="summary-info"><span class="title">Flat Rate</span></p>
-                        <p class="summary-info"><span class="title">Shipping ${{$order->shipping}}</span></p>
+                        <div class="summary-item shipping-method">
+                            <h4 class="title-box f-title">Shipping method</h4>
+                            <p class="summary-info"><span class="title">Flat Rate</span></p>
+                            <p class="summary-info"><span class="title">Shipping ${{$order->shipping}}</span></p>
 
+                        </div>
                     </div>
-                </div>
-            @endif
+                @endif
 
             <div class="wrap-show-advance-info-box style-1 box-in-site">
                 <h3 class="title-box">Most Viewed Products</h3>

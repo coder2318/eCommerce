@@ -25,24 +25,25 @@ class ShopComponent extends Component
 
     public function store($product_id)
     {
-        // dd($product_id);
         $product = Product::find($product_id);
-        if($cart = Cart::where('product_id', $product->id)->where('user_id', auth()->user()->id)->first()){
-            $cart->update([
-                'quantity' => $cart->quantity + 1,
-                'price' => $cart->price_each*($cart->quantity + 1)
-            ]);
-        } else{
-            Cart::create([
-                'product_id' => $product_id,
-                'user_id' => auth()->user()->id,
-                'quantity' => 1,
-                'price_each' => $product->price,
-                'price' => $product->price
-            ]);
+        if(auth()->check()){
+            if($cart = Cart::where('product_id', $product->id)->where('user_id', auth()->user()->id)->first()){
+                $cart->update([
+                    'quantity' => $cart->quantity + 1,
+                    'price' => $cart->price_each*($cart->quantity + 1)
+                ]);
+            } else{
+                Cart::create([
+                    'product_id' => $product_id,
+                    'user_id' => auth()->user()->id,
+                    'quantity' => 1,
+                    'price_each' => $product->price,
+                    'price' => $product->price
+                ]);
+            }
         }
-
         return redirect()->route('cart');
+
     }
 
 

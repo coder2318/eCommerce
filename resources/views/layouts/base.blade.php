@@ -137,7 +137,7 @@
                                 <a href="{{route('home')}}" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
                             </li>
                             <li class="menu-item">
-                                <a href="about-us.html" class="link-term mercado-item-title">{{  __('main.about') }}</a>
+                                <a href="{{route('aboutus')}}" class="link-term mercado-item-title">{{  __('main.about') }}</a>
                             </li>
                             <li class="menu-item">
                                 <a href="{{route('shop')}}" class="link-term mercado-item-title">{{  __('main.shop') }}</a>
@@ -149,7 +149,7 @@
                                 <a href="{{route('checkout')}}" class="link-term mercado-item-title">{{  __('main.checkout') }}</a>
                             </li>
                             <li class="menu-item">
-                                <a href="contact-us.html" class="link-term mercado-item-title">Contact Us</a>
+                                <a href="{{route('contactus')}}" class="link-term mercado-item-title">Contact Us</a>
                             </li>
                         </ul>
                     </div>

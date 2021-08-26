@@ -16,6 +16,7 @@ class CheckoutComponent extends Component
     public $country;
     public $city;
     public $payment_type;
+
     public function mount($order_id = null)
     {
         $this->order_id = $order_id;
@@ -40,14 +41,13 @@ class CheckoutComponent extends Component
 
     public function render()
     {
+        $order = null;
         if(auth()->check()){
             if($this->order_id){
                 $order = Order::find($this->order_id);
             } else{
                 $order = Order::where('user_id', auth()->user()->id)->where('status', 'waiting')->first();
             }
-        } else{
-            return redirect()->route('login');
         }
         return view('livewire.checkout-component', ['order' => $order])->layout('layouts.base');
     }

@@ -49,21 +49,23 @@ class DetailComponent extends Component
 
     public function store()
     {
-        if($this->product_id and $this->quantity){
-            $product = Product::find($this->product_id);
-            if($cart = Cart::where('product_id', $product->id)->where('user_id', auth()->user()->id)->first()){
-                $cart->update([
-                    'quantity' => $cart->quantity + $this->quantity,
-                    'price' => $cart->price_each*($cart->quantity + $this->quantity)
-                ]);
-            } else{
-                Cart::create([
-                    'product_id' => $this->product_id,
-                    'user_id' => auth()->user()->id,
-                    'quantity' => $this->quantity,
-                    'price_each' => $product->price,
-                    'price' => $product->price*$this->quantity
-                ]);
+        if(auth()->check()){
+            if($this->product_id and $this->quantity){
+                $product = Product::find($this->product_id);
+                if($cart = Cart::where('product_id', $product->id)->where('user_id', auth()->user()->id)->first()){
+                    $cart->update([
+                        'quantity' => $cart->quantity + $this->quantity,
+                        'price' => $cart->price_each*($cart->quantity + $this->quantity)
+                    ]);
+                } else{
+                    Cart::create([
+                        'product_id' => $this->product_id,
+                        'user_id' => auth()->user()->id,
+                        'quantity' => $this->quantity,
+                        'price_each' => $product->price,
+                        'price' => $product->price*$this->quantity
+                    ]);
+                }
             }
         }
         return redirect()->route('cart');
