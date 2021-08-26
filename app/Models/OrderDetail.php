@@ -11,4 +11,18 @@ class OrderDetail extends Model
 
     protected $guarded = [];
 
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
+
+    public function order()
+    {
+        return $this->belongsTo(Order::class);
+    }
+
+    public function review()
+    {
+        return $this->hasOne(Review::class, 'order_details_id');
+    }
 }

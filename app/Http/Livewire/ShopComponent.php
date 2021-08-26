@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Product;
 use Livewire\Component;
@@ -21,6 +22,30 @@ class ShopComponent extends Component
         $this->category_slug = $category_slug;
         $this->search = request()->get('search', null);
     }
+
+    public function store($product_id)
+    {
+        // dd($product_id);
+        $product = Product::find($product_id);
+        if($cart = Cart::where('product_id', $product->id)->where('user_id', auth()->user()->id)->first()){
+            $cart->update([
+                'quantity' => $cart->quantity + 1,
+                'price' => $cart->price_each*($cart->quantity + 1)
+            ]);
+        } else{
+            Cart::create([
+                'product_id' => $product_id,
+                'user_id' => auth()->user()->id,
+                'quantity' => 1,
+                'price_each' => $product->price,
+                'price' => $product->price
+            ]);
+        }
+
+        return redirect()->route('cart');
+    }
+
+
     public function render()
     {
         $product = Product::query();

@@ -71,7 +71,10 @@
                                     <a title="Dollar (USD)" href="#">My account {{auth()->user()->name}}<i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                     <ul class="submenu curency" >
                                         <li class="menu-item" >
-                                            <a title="Pound (GBP)" href="{{route('logout')}}" onclick="event.preventDefault();
+                                            <a title="My Orders" href="{{route('myorders')}}">My Orders</a>
+                                        </li>
+                                        <li class="menu-item" >
+                                            <a title="Logout" href="{{route('logout')}}" onclick="event.preventDefault();
                                             document.getElementById('form-logout').submit()">LogOut</a>
                                         </li>
                                         <form action="{{route('logout')}}" id="form-logout" method="post">
@@ -94,7 +97,7 @@
                 <div class="mid-section main-info-area">
 
                     <div class="wrap-logo-top left-section">
-                        <a href="index.html" class="link-to-home"><img src="assets/images/logo-top-1.png" alt="mercado"></a>
+                        <a href="index.html" class="link-to-home"><img src="{{asset('assets/images/logo-top-1.png')}}" alt="mercado"></a>
                     </div>
 
                     @livewire('search-header-component')
@@ -299,7 +302,7 @@
                             <h3 class="item-header">We Using Safe Payments:</h3>
                             <div class="item-content">
                                 <div class="wrap-list-item wrap-gallery">
-                                    <img src="assets/images/payment.png" style="max-width: 260px;">
+                                    <img src="{{asset('assets/images/payment.png')}}" style="max-width: 260px;">
                                 </div>
                             </div>
                         </div>
@@ -328,8 +331,8 @@
                             <div class="item-content">
                                 <div class="wrap-list-item apps-list">
                                     <ul>
-                                        <li><a href="#" class="link-to-item" title="our application on apple store"><figure><img src="assets/images/brands/apple-store.png" alt="apple store" width="128" height="36"></figure></a></li>
-                                        <li><a href="#" class="link-to-item" title="our application on google play store"><figure><img src="assets/images/brands/google-play-store.png" alt="google play store" width="128" height="36"></figure></a></li>
+                                        <li><a href="#" class="link-to-item" title="our application on apple store"><figure><img src="{{asset('assets/images/brands/apple-store.png')}}" alt="apple store" width="128" height="36"></figure></a></li>
+                                        <li><a href="#" class="link-to-item" title="our application on google play store"><figure><img src="{{asset('assets/images/brands/google-play-store')}}.png" alt="google play store" width="128" height="36"></figure></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -416,7 +419,7 @@
 <script src="{{asset('assets/js/jquery-ui-1.12.4.minb8ff.js?ver=1.12.4')}}"></script>
 <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('assets/js/jquery.flexslider.js')}}"></script>
-{{--<script src="{{asset('assets/js/chosen.jquery.min.js')}}"></script>--}}
+<script src="{{asset('assets/js/chosen.jquery.min.js')}}"></script>
 <script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
 <script src="{{asset('assets/js/jquery.countdown.min.js')}}"></script>
 <script src="{{asset('assets/js/jquery.sticky.js')}}"></script>

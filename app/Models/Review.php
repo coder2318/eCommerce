@@ -5,14 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Order extends Model
+class Review extends Model
 {
     use HasFactory;
-
     protected $guarded = [];
 
-    public function user()
+    public function order_details()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(OrderDetail::class);
     }
 }

@@ -18,10 +18,12 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => ['get
         Route::get('/', \App\Http\Livewire\HomeComponent::class)->name('home');
         Route::get('/shop/{category_slug?}', \App\Http\Livewire\ShopComponent::class)->name('shop');
         Route::get('/cart', \App\Http\Livewire\CartComponent::class)->name('cart')->middleware('auth');
-        Route::post('/cart/store', [\App\Http\Livewire\CartComponent::class, 'store'])->name('cart.store')->middleware('auth');
         Route::get('/product/detail/{slug?}', \App\Http\Livewire\DetailComponent::class)->name('product.detail');
         Route::get('/checkout/{order_id?}', \App\Http\Livewire\CheckoutComponent::class)->name('checkout');
         Route::get('/thank-you/{order_id}', \App\Http\Livewire\ThankyouComponent::class)->name('thankyou');
+        Route::get('/order-details/{order_id}', \App\Http\Livewire\OrderDetailsComponent::class)->name('order.details');
+        Route::get('/reviews/{order_details_id}', \App\Http\Livewire\ReviewComponent::class)->name('reviews');
+        Route::get('/my-orders', \App\Http\Livewire\MyOrdersComponent::class)->name('myorders');
     Route::group(['middleware' => ['role:user']], function () {
         Route::get('/colors', function () {     return view('dashboard.colors'); });
         Route::get('/typography', function () { return view('dashboard.typography'); });
