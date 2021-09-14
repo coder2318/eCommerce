@@ -159,7 +159,7 @@
                                                         <img alt="" src="{{asset('assets/images/author-avata.jpg')}}" height="80" width="80">
                                                         <div class="comment-text">
                                                             <div class="star-rating">
-                                                                <span class="width-{{$item->review->reting*20}}-percent">Rated <strong class="rating">5</strong> out of 5</span>
+                                                                <span class="width-{{$item->review->rating*20}}-percent">Rated <strong class="rating">5</strong> out of 5</span>
                                                             </div>
                                                             <p class="meta">
                                                                 <strong class="woocommerce-review__author">{{$item->order->user->name}}</strong>

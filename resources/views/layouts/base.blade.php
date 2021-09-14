@@ -67,6 +67,25 @@
                                 </ul>
                             </li>
                             @auth()
+                                @if (auth()->user()->hasRole('admin'))
+                                    <li class="menu-item menu-item-has-children parent" >
+                                        <a title="Dollar (USD)" href="#">My account {{auth()->user()->name}}<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                        <ul class="submenu curency" >
+                                            <li class="menu-item" >
+                                                <a title="My Orders" href="{{route('admin.dashboard')}}">Admin Dashboard</a>
+                                            </li>
+                                            <li class="menu-item" >
+                                                <a title="Logout" href="{{route('logout')}}" onclick="event.preventDefault();
+                                                document.getElementById('form-logout').submit()">LogOut</a>
+                                            </li>
+                                            <form action="{{route('logout')}}" id="form-logout" method="post">
+                                                @csrf
+                                                <input type="submit" hidden>
+                                            </form>
+
+                                        </ul>
+                                    </li>
+                                @else
                                 <li class="menu-item menu-item-has-children parent" >
                                     <a title="Dollar (USD)" href="#">My account {{auth()->user()->name}}<i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                     <ul class="submenu curency" >
@@ -84,6 +103,7 @@
 
                                     </ul>
                                 </li>
+                                @endif
                             @else
                                 <li class="menu-item" ><a title="Register or Login" href="{{route('login')}}">Login</a></li>
                                 <li class="menu-item" ><a title="Register or Login" href="{{route('register')}}">Register</a></li>

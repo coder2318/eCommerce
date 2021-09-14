@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\User\StoreRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Spatie\Permission\Models\Role;
 
 class UsersController extends Controller
 {
@@ -31,6 +33,27 @@ class UsersController extends Controller
         return view('dashboard.admin.usersList', compact('users', 'you'));
     }
 
+    public function create()
+    {
+        $roles = Role::all();
+        return view('dashboard.admin.userCreate', compact('roles'));
+    }
+
+    public function store(StoreRequest $request)
+    {
+        $params = $request->validated();
+        $user = User::create([
+            'name' => $params['name'],
+            'email' => $params['email'],
+            'password' => bcrypt($params['password']),
+            'menuroles' => $params['role_name']
+        ]);
+
+        $user->assignRole($params['role_name']);
+
+        return redirect()->route('users.index');
+
+    }
     /**
      * Display the specified resource.
      *

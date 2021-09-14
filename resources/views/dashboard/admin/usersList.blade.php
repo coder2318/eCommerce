@@ -5,10 +5,12 @@
         <div class="container-fluid">
           <div class="animated fadeIn">
             <div class="row">
-              <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8">
+                <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8">
+                  <a href="{{ route('users.create') }}" class="btn btn-primary">Create</a>
                 <div class="card">
                     <div class="card-header">
                       <i class="fa fa-align-justify"></i>{{ __('Users') }}</div>
+
                     <div class="card-body">
                         <table class="table table-responsive-sm table-striped">
                         <thead>
@@ -30,10 +32,10 @@
                               <td>{{ $user->menuroles }}</td>
                               <td>{{ $user->email_verified_at }}</td>
                               <td>
-                                <a href="{{ url('/users/' . $user->id) }}" class="btn btn-block btn-primary">View</a>
+                                <a href="{{ url('admin/users/' . $user->id) }}" class="btn btn-block btn-primary">View</a>
                               </td>
                               <td>
-                                <a href="{{ url('/users/' . $user->id . '/edit') }}" class="btn btn-block btn-primary">Edit</a>
+                                <a href="{{ url('admin/users/' . $user->id . '/edit') }}" class="btn btn-block btn-primary">Edit</a>
                               </td>
                               <td>
                                 @if( $you->id !== $user->id )
