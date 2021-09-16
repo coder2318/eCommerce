@@ -26,23 +26,20 @@
                                 <fieldset class="wrap-input">
                                     <label for="frm-reg-lname">Name*</label>
                                     <input type="text" id="frm-reg-lname" name="name" placeholder="name*">
+                                    <div style="color:red"><span>{{$errors->first('name')}}</span></div>
                                 </fieldset>
                                 <fieldset class="wrap-input">
                                     <label for="frm-reg-email">Email Address*</label>
                                     <input type="email" id="frm-reg-email" name="email" placeholder="Email address">
+                                    <div style="color:red"><span>{{$errors->first('name')}}</span></div>
                                 </fieldset>
-                                <fieldset class="wrap-title">
-                                    <h3 class="form-title">Login Information</h3>
-                                </fieldset>
+
                                 <fieldset class="wrap-input item-width-in-half left-item ">
                                     <label for="frm-reg-pass">Password *</label>
                                     <input type="password" id="frm-reg-pass" name="password" placeholder="Password">
-                                </fieldset>
-                                <fieldset class="wrap-input item-width-in-half left-item ">
-                                    <label for="frm-reg-pass">Password *</label>
-                                    <input type="password" id="frm-reg-pass" name="password_confirmation" placeholder="Password">
-                                </fieldset>
+                                    <div style="color:red"><span>{{$errors->first('name')}}</span></div>
 
+                                </fieldset>
                                 <input type="submit" class="btn btn-sign" value="Register">
                             </form>
                         </div>
