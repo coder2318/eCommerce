@@ -117,7 +117,7 @@
                 <div class="mid-section main-info-area">
 
                     <div class="wrap-logo-top left-section">
-                        <a href="index.html" class="link-to-home"><img src="{{asset('assets/images/logo-top-1.png')}}" alt="mercado"></a>
+                        <a href="{{route('home')}}" class="link-to-home"><img src="{{asset('assets/images/onshopuz.png')}}" alt="mercado" width="40%"></a>
                     </div>
 
                     @livewire('search-header-component')
