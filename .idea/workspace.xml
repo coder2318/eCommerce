@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e1a63db-5c84-4b33-9bb3-e57a6030d01b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/CheckoutComponent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/CheckoutComponent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/DetailComponent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/DetailComponent.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/ShopComponent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/ShopComponent.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/base.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/base.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/checkout-component.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/checkout-component.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +159,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.stylelint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -190,6 +182,9 @@
     </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="9e1a63db-5c84-4b33-9bb3-e57a6030d01b" name="Default Changelist" comment="" />
@@ -201,12 +196,53 @@
       <workItem from="1628343302699" duration="7152000" />
       <workItem from="1628695305036" duration="6399000" />
       <workItem from="1628708455222" duration="1344000" />
-      <workItem from="1630000126575" duration="3283000" />
+      <workItem from="1630000126575" duration="4032000" />
+      <workItem from="1631607887772" duration="1197000" />
+      <workItem from="1631773280704" duration="4888000" />
+      <workItem from="1631802251227" duration="2885000" />
+      <workItem from="1631850682778" duration="610000" />
+      <workItem from="1631876914599" duration="1215000" />
+      <workItem from="1632110375664" duration="582000" />
+      <workItem from="1632739869285" duration="2027000" />
+      <workItem from="1632900776222" duration="1227000" />
+      <workItem from="1633003080462" duration="393000" />
+      <workItem from="1633441515357" duration="797000" />
+      <workItem from="1633588886047" duration="1215000" />
+      <workItem from="1634047887620" duration="5274000" />
+      <workItem from="1634792680689" duration="2412000" />
+      <workItem from="1635503364834" duration="763000" />
+      <workItem from="1635598134072" duration="903000" />
+      <workItem from="1635602808277" duration="1208000" />
+      <workItem from="1635741710571" duration="775000" />
     </task>
+    <task id="LOCAL-00001" summary="add aboutUs and ContactUs pages">
+      <created>1630004187084</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1630004187084</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add aboutUs and ContactUs pages" />
+    <option name="LAST_COMMIT_MESSAGE" value="add aboutUs and ContactUs pages" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

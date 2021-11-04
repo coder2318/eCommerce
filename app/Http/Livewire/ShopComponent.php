@@ -15,6 +15,8 @@ class ShopComponent extends Component
     public $paginate;
     public $category_slug;
     public $search;
+    public $min;
+    public $max;
     public function  mount($category_slug = null)
     {
         $this->sort = 'default';
@@ -68,6 +70,12 @@ class ShopComponent extends Component
             // dd($this->search);
             $product = $product->where('name', 'like', '%'.$this->search.'%');
         }
+
+        if($this->min and $this->max){
+            // dd($this->search);
+            $product = $product->where('price', '>', $this->min)->where('price', '<', $this->max);
+        }
+
         $product = $product->paginate($this->paginate);
         $categories = Category::get();
         return view('livewire.shop-component', ['products' => $product, 'categories' => $categories, 'category' => $category])->layout('layouts.base');
