@@ -102,32 +102,11 @@
                     </div>
                     <div class="advance-info">
                         <div class="tab-control normal">
-                            <a href="#description" class="tab-control-item active">description</a>
-                            <a href="#add_infomation" class="tab-control-item">Addtional Infomation</a>
-                            <a href="#review" class="tab-control-item">Reviews</a>
+                            <a href="#review" class="tab-control-item active">Reviews</a>
                         </div>
                         <div class="tab-contents">
-                            <div class="tab-content-item active" id="description">
-                                <p>Lorem ipsum dolor sit amet, an munere tibique consequat mel, congue albucius no qui, a t everti meliore erroribus sea. ro cum. Sea ne accusata voluptatibus. Ne cum falli dolor voluptua, duo ei sonet choro facilisis, labores officiis torquatos cum ei.</p>
-                                <p>Cum altera mandamus in, mea verear disputationi et. Vel regione discere ut, legere expetenda ut eos. In nam nibh invenire similique. Atqui mollis ea his, ius graecis accommodare te. No eam tota nostrum eque. Est cu nibh clita. Sed an nominavi, et stituto, duo id rebum lucilius. Te eam iisque deseruisse, ipsum euismod his at. Eu putent habemus voluptua sit, sit cu rationibus scripserit, modus taria . </p>
-                                <p>experian soleat maluisset per. Has eu idque similique, et blandit scriptorem tatibus mea. Vis quaeque ocurreret ea.cu bus  scripserit, modus voluptaria ex per.</p>
-                            </div>
-                            <div class="tab-content-item " id="add_infomation">
-                                <table class="shop_attributes">
-                                    <tbody>
-                                        <tr>
-                                            <th>Weight</th><td class="product_weight">1 kg</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Dimensions</th><td class="product_dimensions">12 x 15 x 23 cm</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Color</th><td><p>Black, Blue, Grey, Violet, Yellow</p></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="tab-content-item " id="review">
+
+                            <div class="tab-content-item active" id="review">
                                 <style>
                                     .width-0-percent {
                                         width: 0%;
@@ -159,7 +138,7 @@
                                                         <img alt="" src="{{asset('assets/images/author-avata.jpg')}}" height="80" width="80">
                                                         <div class="comment-text">
                                                             <div class="star-rating">
-                                                                <span class="width-{{$item->review->reting*20}}-percent">Rated <strong class="rating">5</strong> out of 5</span>
+                                                                <span class="width-{{$item->review->rating*20}}-percent">Rated <strong class="rating">5</strong> out of 5</span>
                                                             </div>
                                                             <p class="meta">
                                                                 <strong class="woocommerce-review__author">{{$item->order->user->name}}</strong>
